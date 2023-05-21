@@ -1,10 +1,16 @@
 import { createApp } from "vue";
 import "./style.css";
+import "./input.css";
 import App from "./App.vue";
 import axios from "axios";
 import router from "./router";
 
-axios.defaults.baseURL = "https://localhost:7108/";
-axios.defaults.withCredentials = true;
+const http = axios.create({
+  baseURL: "https://localhost:7108/",
+  withCredentials: true,
+});
 
-createApp(App).use(router).mount("#app");
+const app = createApp(App);
+app.config.globalProperties.$axios = http;
+
+app.use(router).mount("#app");
