@@ -1,3 +1,12 @@
+using Dapper;
+using Project.Server.Models;
+using Project.Server.Repositories.Users;
+using Project.Server.Services;
+using SqlKata.Compilers;
+using SqlKata.Execution;
+using System.Data.SqlClient;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,13 +21,28 @@ builder.Services.AddCors(options =>
     });
 });
 
+Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
+
+builder.Services.AddScoped<SqlConnection>(option => new SqlConnection(builder.Configuration.GetConnectionString("SqlServer")));
+
+builder.Services.AddScoped<Compiler, SqlServerCompiler>();
+builder.Services.AddScoped(option =>
+{
+    var connection = option.GetRequiredService<SqlConnection>();
+    var compiler = option.GetRequiredService<Compiler>();
+    return new QueryFactory(connection, compiler);
+});
+
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
