@@ -88,21 +88,37 @@
       <div
         class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between"
       >
-        <span class="text-xs xs:text-sm text-gray-900">
-          Showing 1 to 4 of 50 Entries
-        </span>
-        <div class="inline-flex mt-2 xs:mt-0">
-          <button
-            class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l"
-          >
-            Prev
-          </button>
-          <button
-            class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r"
-          >
-            Next
-          </button>
-        </div>
+        <nav aria-label="Page navigation example">
+          <ul class="inline-flex -space-x-px">
+            <li>
+              <a
+                href="#"
+                @click="changePage(currentPage - 1)"
+                :class="pageButtonClasses(currentPage - 1)"
+              >
+                Previous
+              </a>
+            </li>
+            <li v-for="pageNumber in totalPage" :key="pageNumber">
+              <a
+                href="#"
+                @click="changePage(pageNumber)"
+                :class="pageButtonClasses(pageNumber)"
+              >
+                {{ pageNumber }}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                @click="changePage(currentPage + 1)"
+                :class="pageButtonClasses(currentPage + 1)"
+              >
+                Next
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
@@ -113,14 +129,22 @@ import "jspreadsheet-ce/dist/jspreadsheet.css";
 </script>
 
 <script setup>
-import { ref, reactive, onMounted, inject, getCurrentInstance } from "vue";
-import jspreadsheet from "jspreadsheet-ce";
+import {
+  ref,
+  reactive,
+  onMounted,
+  inject,
+  getCurrentInstance,
+  computed,
+} from "vue";
 import { ChevronUpIcon } from "@heroicons/vue/24/outline";
 const axios = getCurrentInstance().appContext.config.globalProperties.$axios;
 
 let users = ref([]);
 let currentPage = ref(1);
 let pageSize = ref(10);
+let totalItems = ref(0);
+let totalPage = ref(0);
 
 const searchItems = ref([
   { label: "ユーザーID", value: "", isOpen: false },
@@ -129,40 +153,36 @@ const searchItems = ref([
 ]);
 
 const isOpen = ref(false);
-const getUsers = async (pageNumber, pageSize) => {
-  try {
-    const response = await axios.get("api/users", {
-      params: {
-        searchUser: searchItems,
-        pageNumber: pageNumber,
-        pageSize: pageSize,
-      },
-    });
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 const search = async () => {
   try {
     const response = await axios.post("api/users/search", {
-      params: {
-        searchUser: searchItems,
-      },
+      userId: searchItems.value[0].value,
+      userName: searchItems.value[1].value,
+      authority: searchItems.value[2].value,
+      pageNumber: (currentPage.value - 1) * pageSize.value,
+      pageSize: pageSize.value,
     });
     users.value = response.data;
-    console.log(users.value);
+    totalItems.value = users.value.length;
+    setTotalPage();
   } catch (error) {
     console.error(error);
   }
 };
 
-onMounted(() => {});
+const changePage = (pageNumber) => {
+  if (pageNumber <= 0) return;
+  currentPage.value = pageNumber;
+  search();
+};
 
-const handlePageChange = (el, cell, col, row, value) => {
-  if (col === "page") {
-    currentPage.value = value;
-    getUsers(currentPage.value, pageSize.value);
-  }
+const pageButtonClasses = (pageNumber) => {
+  return pageNumber === currentPage.value
+    ? "px-3 py-2 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+    : "px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white";
+};
+
+const setTotalPage = () => {
+  totalPage.value = Math.ceil(totalItems.value / pageSize.value);
 };
 </script>

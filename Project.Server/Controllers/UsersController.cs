@@ -17,14 +17,15 @@ namespace Project.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<User>> Get(SearchUser searchUser, int pageNumber, int pageSize)
+        [Route("{id}")]
+        public async Task<IEnumerable<User>> Get(int id)
         {
-            return await userService.GetUsers(searchUser, pageNumber, pageSize);
+            return await userService.GetUsers(id);
         }
 
         [HttpPost]
         [Route("search")]
-        public async Task<IEnumerable<User>> Search(SearchUser searchUser)
+        public async Task<IEnumerable<User>> Search([FromBody]SearchUser searchUser)
         {
             return await userService.SearchUsers(searchUser);
         }

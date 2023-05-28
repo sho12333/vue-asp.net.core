@@ -26,26 +26,11 @@ namespace Project.Server.Repositories.Users
         /// <summary>
         /// ユーザー取得
         /// </summary>
-        /// <param name="pageNumber"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<IEnumerable<User>> GetItemsPagedAsync(SearchUser searchUser, int pageNumber, int pageSize)
+        public async Task<IEnumerable<User>> GetUsersAsync(int id)
         {
-            var query = queryFactory.Query("M_USER").OrderBy("USER_ID").Limit(pageSize).Offset(pageNumber);
-
-            if (!string.IsNullOrEmpty(searchUser.UserId))
-            {
-                query = query.WhereLike("USER_ID", searchUser.UserId);
-            }
-
-            if (!string.IsNullOrEmpty(searchUser.UserName))
-            {
-                query = query.WhereLike("USER_NAME", searchUser.UserName);
-            }
-            if (!string.IsNullOrEmpty(searchUser.Authoty))
-            {
-                query = query.WhereLike("AUTHORITY", searchUser.Authoty);
-            }
+            var query = queryFactory.Query("M_USER").OrderBy("USER_ID").Where("USER_ID",id);
 
             var result = new SqlServerCompiler().Compile(query);
 
@@ -63,7 +48,7 @@ namespace Project.Server.Repositories.Users
         /// <returns></returns>
         public async Task<IEnumerable<User>> SearchAsync(SearchUser searchUser)
         {
-            var query = queryFactory.Query("M_USER");
+            var query = queryFactory.Query("M_USER").Limit(searchUser.PageSize).Offset(searchUser.PageNumber);
 
             if (!string.IsNullOrEmpty(searchUser.UserId))
             {

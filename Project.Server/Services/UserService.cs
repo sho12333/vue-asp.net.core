@@ -12,9 +12,9 @@ namespace Project.Server.Services
             this.userRepository = userRepository;
         }
 
-        public async Task<IEnumerable<User>> GetUsers(SearchUser searchUser, int pageNumber, int pageSize)
+        public async Task<IEnumerable<User>> GetUsers(int id)
         {
-            return await userRepository.GetItemsPagedAsync(searchUser, pageNumber, pageSize);
+            return await userRepository.GetUsersAsync(id);
         }
 
         public async Task<IEnumerable<User>> SearchUsers(SearchUser searchUser)

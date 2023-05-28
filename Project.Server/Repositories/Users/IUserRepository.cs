@@ -4,7 +4,7 @@ namespace Project.Server.Repositories.Users
 {
     public interface IUserRepository
     {
-        Task<IEnumerable<User>> GetItemsPagedAsync(SearchUser searchUser, int pageNumber, int pageSize);
+        Task<IEnumerable<User>> GetUsersAsync(int id);
 
         Task<IEnumerable<User>> SearchAsync(SearchUser searchUser);
 
