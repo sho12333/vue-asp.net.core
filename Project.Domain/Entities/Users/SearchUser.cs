@@ -1,4 +1,4 @@
-﻿namespace Project.Server.Models.Users
+﻿namespace Project.Domain.Entities.Users
 {
     /// <summary>
     /// 検索用ユーザー

@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@auth0/auth0-vue": "^2.2.0",
     "@headlessui/vue": "^1.7.13",
     "@heroicons/vue": "^2.0.18",
     "autoprefixer": "^10.4.14",

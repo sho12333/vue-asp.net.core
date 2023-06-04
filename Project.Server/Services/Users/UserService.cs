@@ -1,7 +1,8 @@
-﻿using Project.Server.Models.Users;
-using Project.Server.Repositories.Users;
+﻿
+using Project.Domain.Entities.Users;
+using Project.Infrastructure.Data.Repositories.Users;
 
-namespace Project.Server.Services
+namespace Project.Server.Services.Users
 {
     public class UserService : IUserService
     {

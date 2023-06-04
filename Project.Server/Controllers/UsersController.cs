@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Project.Server.Models.Users;
+using Project.Domain.Entities.Users;
 using Project.Server.Services;
+using Project.Server.Services.Users;
 
 namespace Project.Server.Controllers
 {

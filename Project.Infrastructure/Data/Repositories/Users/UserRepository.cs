@@ -1,12 +1,12 @@
 ﻿using Dapper;
-using Project.Server.Models.Users;
+using Project.Domain.Entities.Users;
 using SqlKata;
 using SqlKata.Compilers;
 using SqlKata.Execution;
 using System;
 using System.Data.SqlClient;
 
-namespace Project.Server.Repositories.Users
+namespace Project.Infrastructure.Data.Repositories.Users
 {
     public class UserRepository : IUserRepository
     {

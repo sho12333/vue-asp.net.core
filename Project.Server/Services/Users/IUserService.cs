@@ -1,6 +1,7 @@
-﻿using Project.Server.Models.Users;
+﻿
+using Project.Domain.Entities.Users;
 
-namespace Project.Server.Services
+namespace Project.Server.Services.Users
 {
     public interface IUserService
     {

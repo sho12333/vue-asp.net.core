@@ -65,6 +65,7 @@
                     >
                       <a
                         :href="item.href"
+                        @click="item.onclick"
                         :class="[
                           active ? 'bg-gray-100' : '',
                           'block px-4 py-2 text-sm text-gray-700',
@@ -136,6 +137,7 @@
               :key="item.name"
               as="a"
               :href="item.href"
+              @click="item.onclick"
               class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
               >{{ item.name }}</DisclosureButton
             >
@@ -166,6 +168,37 @@ import {
 
 import { RouterLink, RouterView } from "vue-router";
 
+import { useAuth0 } from "@auth0/auth0-vue";
+import { onMounted } from "vue";
+
+const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
+const handleLogin = () => {
+  loginWithRedirect({
+    appState: {
+      target: "/",
+    },
+  });
+};
+
+const handleSignUp = () => {
+  loginWithRedirect({
+    appState: {
+      target: "/",
+    },
+    authorizationParams: {
+      screen_hint: "signup",
+    },
+  });
+};
+
+const handleLogout = () =>
+  logout({
+    logoutParams: {
+      returnTo: window.location.origin,
+    },
+  });
+
 const user = {
   name: "Sho",
   email: "Sample@example.com",
@@ -176,9 +209,9 @@ const navigation = [
   { name: "Users", href: "/users", current: false },
 ];
 const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign in", href: "#" },
-  { name: "Sign out", href: "#" },
+  { name: "Your Profile", href: "#", onClick: "" },
+  { name: "Settings", href: "#", onclick: "" },
+  { name: "Sign in", href: "#", onclick: handleLogin },
+  { name: "Sign out", href: "#", onclick: handleLogout },
 ];
 </script>

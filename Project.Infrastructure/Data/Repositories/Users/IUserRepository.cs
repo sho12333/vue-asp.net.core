@@ -1,6 +1,6 @@
-﻿using Project.Server.Models.Users;
+﻿using Project.Domain.Entities.Users;
 
-namespace Project.Server.Repositories.Users
+namespace Project.Infrastructure.Data.Repositories.Users
 {
     public interface IUserRepository
     {

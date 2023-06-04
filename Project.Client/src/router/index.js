@@ -14,6 +14,11 @@ const router = createRouter({
       name: "users",
       component: () => import("../views/UserView.vue"),
     },
+    {
+      path: "/callback",
+      name: "callback",
+      component: () => import("../views/CallbackView.vue"),
+    },
   ],
 });
 

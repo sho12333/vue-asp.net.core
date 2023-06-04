@@ -1,4 +1,4 @@
-﻿namespace Project.Server.Models.Users
+﻿namespace Project.Domain.Entities.Users
 {
     /// <summary>
     /// ユーザー情報を提供する

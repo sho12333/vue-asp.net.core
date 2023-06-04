@@ -1,7 +1,7 @@
 using Dapper;
-using Project.Server.Models;
-using Project.Server.Repositories.Users;
+using Project.Infrastructure.Data.Repositories.Users;
 using Project.Server.Services;
+using Project.Server.Services.Users;
 using SqlKata.Compilers;
 using SqlKata.Execution;
 using System.Data.SqlClient;
