@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vue3AspNetCore.Server", "Vue3AspNetCore.Server\Vue3AspNetCore.Server.csproj", "{6EC1E265-3736-4E45-B45E-CAE8A4708DBD}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "vue3aspnetcore.client", "vue3aspnetcore.client\vue3aspnetcore.client.esproj", "{BE4B7795-69BC-4082-9E87-D60100C40606}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vue3AspNetCore.Domain", "Vue3AspNetCore.Domain\Vue3AspNetCore.Domain.csproj", "{24B7F700-B231-42AA-AB0B-CF96092696DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EC1E265-3736-4E45-B45E-CAE8A4708DBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EC1E265-3736-4E45-B45E-CAE8A4708DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EC1E265-3736-4E45-B45E-CAE8A4708DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EC1E265-3736-4E45-B45E-CAE8A4708DBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE4B7795-69BC-4082-9E87-D60100C40606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE4B7795-69BC-4082-9E87-D60100C40606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE4B7795-69BC-4082-9E87-D60100C40606}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BE4B7795-69BC-4082-9E87-D60100C40606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE4B7795-69BC-4082-9E87-D60100C40606}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE4B7795-69BC-4082-9E87-D60100C40606}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{24B7F700-B231-42AA-AB0B-CF96092696DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24B7F700-B231-42AA-AB0B-CF96092696DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24B7F700-B231-42AA-AB0B-CF96092696DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24B7F700-B231-42AA-AB0B-CF96092696DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E36C3574-15E7-4F8C-B697-A092BBC66FF2}
+	EndGlobalSection
+EndGlobal

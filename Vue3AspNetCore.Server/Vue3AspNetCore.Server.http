@@ -1,0 +1,6 @@
+@Vue3AspNetCore.Server_HostAddress = http://localhost:5144
+
+GET {{Vue3AspNetCore.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
