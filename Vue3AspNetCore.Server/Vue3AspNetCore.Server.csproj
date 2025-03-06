@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Vue3AspNetCore.Application\Vue3AspNetCore.Application.csproj" />
+    <ProjectReference Include="..\Vue3AspNetCore.Infrastracture\Vue3AspNetCore.Infrastracture.csproj" />
   </ItemGroup>
 
 </Project>

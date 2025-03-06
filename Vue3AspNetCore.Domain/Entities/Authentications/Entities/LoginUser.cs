@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vue3AspNetCore.Domain.Authentications.Entities
+namespace Vue3AspNetCore.Domain.Entities.Authentications.Entities
 {
     public class LoginUser
     {

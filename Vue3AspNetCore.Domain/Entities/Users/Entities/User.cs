@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vue3AspNetCore.Domain.Entities.Users;
 
-namespace Vue3AspNetCore.Domain.Users.Entities
+namespace Vue3AspNetCore.Domain.Entities.Users.Entities
 {
     public class User : BaseEntity
     {

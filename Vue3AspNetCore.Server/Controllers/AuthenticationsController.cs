@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Vue3AspNetCore.Domain.Authentications.Entities;
+using Vue3AspNetCore.Domain.Entities.Authentications.Entities;
 
 namespace Vue3AspNetCore.Server.Controllers
 {

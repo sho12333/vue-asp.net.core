@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vue3AspNetCore.Application.Interface
+namespace Vue3AspNetCore.Domain.Interface
 {
     public class IUserRepository
     {

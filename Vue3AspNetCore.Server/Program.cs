@@ -1,12 +1,16 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Vue3AspNetCore.Infrastracture;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// DIコンテナにサービスを登録
+builder.Services.AddInfrastructureServices();
 
 var jwtIssuer = builder.Configuration["JwtSettings:Issuer"];
 var jwtKey = builder.Configuration["JwtSettings:Key"];
