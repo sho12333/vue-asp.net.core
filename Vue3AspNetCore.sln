@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vue3AspNetCore.Domain", "Vu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vue3AspNetCore.Application", "Vue3AspNetCore.Application\Vue3AspNetCore.Application.csproj", "{735EEE48-DEF0-4140-ACB7-DB0498C129A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vue3AspNetCore.Infrastracture", "Vue3AspNetCore.Infrastracture\Vue3AspNetCore.Infrastracture.csproj", "{663EA64E-2AE1-4DAC-9D39-3842FDF4F039}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vue3AspNetCore.Infrastracture", "Vue3AspNetCore.Infrastracture\Vue3AspNetCore.Infrastracture.csproj", "{663EA64E-2AE1-4DAC-9D39-3842FDF4F039}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vue3AspNetCore.Tests", "Vue3AspNetCore.Tests\Vue3AspNetCore.Tests.csproj", "{875AE51D-A451-47C2-9A1F-9506D53E4535}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{663EA64E-2AE1-4DAC-9D39-3842FDF4F039}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{663EA64E-2AE1-4DAC-9D39-3842FDF4F039}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{663EA64E-2AE1-4DAC-9D39-3842FDF4F039}.Release|Any CPU.Build.0 = Release|Any CPU
+		{875AE51D-A451-47C2-9A1F-9506D53E4535}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{875AE51D-A451-47C2-9A1F-9506D53E4535}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{875AE51D-A451-47C2-9A1F-9506D53E4535}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{875AE51D-A451-47C2-9A1F-9506D53E4535}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

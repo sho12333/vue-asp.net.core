@@ -3,7 +3,7 @@
     <n-layout-header style="height: 64px; padding: 12px" bordered>
       <NavBar />
     </n-layout-header>
-    <n-layout has-sider position="absolute" style="top: 64px; bottom: 64px">
+    <n-layout has-sider class="main-content" position="absolute" style="top: 64px; bottom: 64px">
       <SideBar />
       <n-layout>
         <RouterView />
@@ -25,7 +25,6 @@ import NavBar from "./components/NavBar.vue";
 }
 
 .main-content {
-  display: flex;
-  flex: 1;
+  height: 100vh;
 }
 </style>

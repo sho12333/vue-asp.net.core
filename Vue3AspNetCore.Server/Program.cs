@@ -10,7 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // DIコンテナにサービスを登録
-builder.Services.AddInfrastructureServices();
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
 var jwtIssuer = builder.Configuration["JwtSettings:Issuer"];
 var jwtKey = builder.Configuration["JwtSettings:Key"];

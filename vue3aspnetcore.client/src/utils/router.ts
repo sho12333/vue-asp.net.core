@@ -3,7 +3,6 @@ import OrderView from "@/views/OrderView.vue";
 import { createRouter, createWebHistory, type RouteRecordRaw } from "vue-router";
 
 // import Dashboard from "../views/Dashboard.vue";
-// // 遅延ロードの例
 // const InventoryList = () => import("../views/inventory/InventoryList.vue");
 // const InventoryInput = () => import("../views/inventory/InventoryInput.vue");
 // const OrderList = () => import("../views/orders/OrderList.vue");
