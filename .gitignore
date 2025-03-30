@@ -482,3 +482,5 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+/Vue3AspNetCore.Server/sample.db
+/Vue3AspNetCore.Server/inventory.db
