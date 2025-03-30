@@ -6,7 +6,9 @@
     <n-layout has-sider class="main-content" position="absolute" style="top: 64px; bottom: 64px">
       <SideBar />
       <n-layout>
-        <RouterView />
+        <n-message-provider>
+          <RouterView />
+        </n-message-provider>
       </n-layout>
     </n-layout>
   </n-layout>

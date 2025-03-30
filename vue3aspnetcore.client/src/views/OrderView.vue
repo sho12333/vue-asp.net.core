@@ -14,8 +14,42 @@
 </template>
 
 <script lang="ts" setup>
+import { createApiClient } from "@/utils/fetchWrapper";
 import { NButton, type DataTableColumns } from "naive-ui";
-import { h, ref } from "vue";
+import { h, onMounted, ref } from "vue";
+
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  stockQuantity: number;
+  categoryId?: number;
+}
+
+interface Category {
+  id: number;
+  name: string;
+  description?: string;
+}
+
+onMounted(async () => {
+  console.log("OrderView mounted");
+  await fetchOrders();
+});
+
+// APIクライアントの作成
+const apiClient = createApiClient("/api", {
+  timeout: 10000, // 10秒
+  credentials: "include",
+  headers: {
+    "X-App-Version": "1.0.0",
+  },
+});
+
+const fetchOrders = async () => {
+  const response = await apiClient.get<Product[]>("/products");
+  console.log(response.data);
+};
 
 // テーブル列の定義
 const columns: DataTableColumns = [

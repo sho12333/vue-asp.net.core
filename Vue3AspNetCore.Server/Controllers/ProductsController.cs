@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Vue3AspNetCore.Domain.Entities.Products;
+using Vue3AspNetCore.Domain.Interface.Services;
 
 namespace Vue3AspNetCore.Server.Controllers
 {

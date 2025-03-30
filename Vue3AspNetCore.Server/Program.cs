@@ -1,16 +1,31 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Vue3AspNetCore.Domain;
+using Vue3AspNetCore.Domain.Exceptions;
 using Vue3AspNetCore.Infrastracture;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+    });
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+MessageManager.Initialize();
+
 // DIコンテナにサービスを登録
 builder.Services.AddInfrastructureServices(builder.Configuration);
+
+builder.Services.AddDomainService();
 
 var jwtIssuer = builder.Configuration["JwtSettings:Issuer"];
 var jwtKey = builder.Configuration["JwtSettings:Key"];

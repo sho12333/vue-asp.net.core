@@ -18,8 +18,11 @@ namespace Vue3AspNetCore.Infrastracture
         {
             // リポジトリ
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IInventoryRepository, InventoryRepository>();
 
-            services.AddDbContext<CustomDbContext>(options => options.UseSqlite(configuration.GetConnectionString("DefaultConnection")));
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sample.db");
+            services.AddDbContext<CustomDbContext>(options => options.UseSqlite($"Data Source={path}"));
 
             return services;
         }

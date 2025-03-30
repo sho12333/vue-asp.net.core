@@ -9,7 +9,7 @@ using Vue3AspNetCore.Domain.Entities.Products;
 
 namespace Vue3AspNetCore.Infrastracture.Data
 {
-    internal class CustomDbContext : DbContext
+    public class CustomDbContext : DbContext
     {
         public CustomDbContext(DbContextOptions<CustomDbContext> options)
             : base(options)

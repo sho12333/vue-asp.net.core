@@ -20,7 +20,16 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Vue3AspNetCore.Application\Vue3AspNetCore.Application.csproj" />
+    <ProjectReference Include="..\Vue3AspNetCore.Domain\Vue3AspNetCore.Domain.csproj" />
     <ProjectReference Include="..\Vue3AspNetCore.Infrastracture\Vue3AspNetCore.Infrastracture.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="sample.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties messages_1json__JsonSchema="https://json.schemastore.org/circleciconfig.json" /></VisualStudio></ProjectExtensions>
 
 </Project>
