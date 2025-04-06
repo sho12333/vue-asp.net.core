@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Vue3AspNetCore.Domain.Entities.Users;
-
-namespace Vue3AspNetCore.Domain.Entities.Customers
+﻿namespace Vue3AspNetCore.Domain.Entities.Customers
 {
     /// <summary>
     /// 顧客
@@ -26,6 +19,41 @@ namespace Vue3AspNetCore.Domain.Entities.Customers
         /// TODO Type
         /// </summary>
         public string CustomerType { get; set; } = string.Empty;
+
+        /// <summary>
+        /// 住所
+        /// </summary>
+        public string CustomerAddress { get; set; } = string.Empty;
+
+        /// <summary>
+        /// 市
+        /// </summary>
+        public string CustomerCity { get; set; } = string.Empty;
+
+        /// <summary>
+        /// 州
+        /// </summary>
+        public string CustomerState { get; set; } = string.Empty;
+
+        /// <summary>
+        /// 郵便コード
+        /// </summary>
+        public string CustomerZip { get; set; } = string.Empty;
+
+        /// <summary>
+        /// 国
+        /// </summary>
+        public string CustomerCountry { get; set; } = string.Empty;
+
+        /// <summary>
+        /// 携帯番号
+        /// </summary>
+        public string CustomerPhone { get; set; } = string.Empty;
+
+        /// <summary>
+        /// メールアドレス
+        /// </summary>
+        public string CustomerEmail { get; set; } = string.Empty;
 
         /// <summary>
         /// TODO 顧客のクレジット限度額

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using Vue3AspNetCore.Domain.Entities.Users;
 
 namespace Vue3AspNetCore.Domain.Entities.Products
 {
