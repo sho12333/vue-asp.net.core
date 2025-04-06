@@ -75,7 +75,7 @@ namespace Vue3AspNetCore.Domain.Entities.Orders
                 item.Validate();
             }
 
-            if (Customer == null)
+            if (Customer == null || string.IsNullOrEmpty(Customer.Name))
             {
                 throw new ArgumentNullException(nameof(Customer), "顧客情報が登録されていません。");
             }

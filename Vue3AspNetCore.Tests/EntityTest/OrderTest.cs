@@ -138,6 +138,10 @@ namespace Vue3AspNetCore.Tests.EntityTest
             var order = new Order
             {
                 Customer = new(),
+                OrderItems = new List<OrderItem>
+                {
+                    new OrderItem { ProductId = 1, Quantity = 2, UnitPrice = 10 }
+                }
             };
 
             // Act & Assert
