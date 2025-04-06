@@ -454,7 +454,7 @@ const columns: DataTableColumns<Product> = [
 
 // コンポーネントマウント時の処理
 onMounted(async () => {
-  await Promise.all([fetchProducts(), fetchCategories()]);
+  await Promise.all([fetchProducts()]);
 });
 </script>
 
